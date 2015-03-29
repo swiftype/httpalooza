@@ -16,6 +16,7 @@ require 'httpalooza/players/typhoeus'
 require 'httpalooza/players/patron'
 require 'httpalooza/players/http_client'
 require 'httpalooza/players/curl'
+require 'httpalooza/players/user_browser'
 
 module HTTPalooza
   class Error < StandardError; end
