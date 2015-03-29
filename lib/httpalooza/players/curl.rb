@@ -6,7 +6,7 @@ module HTTPalooza
       def response
         output = `curl -isX #{request.method.to_s.upcase} '#{request.url}'`
         code = output.scan(/^HTTP[^\s]*\s(\d+)/).first.first.to_i rescue 0
-        body = output.split(/^\s$/, 2).last
+        body = output.split(/^\s$/, 2).last.try(:strip)
         Response.new(code, body)
       end
     end

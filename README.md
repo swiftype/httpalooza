@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+$ bundle exec bin/console
+irb(main):001:0> ap HTTPalooza.invite.patron_to_the_party.and_use_typhoeus_too.lets_also_use_http_client_and_plain_old_curl_to.get("http://example.com")
+{
+         :patron => <HTTPalooza::Response:70225910064600 code=200 body="<!doctype html>\n<html>\n<...,
+       :typhoeus => <HTTPalooza::Response:70225915728560 code=200 body="<!doctype html>\n<html>\n<...,
+    :http_client => <HTTPalooza::Response:70225924014880 code=200 body="<!doctype html>\n<html>\n<...,
+           :curl => <HTTPalooza::Response:70225919916880 code=200 body="<!doctype html>\n<html>\n<...
+}
+```
 
 ## Development
 
