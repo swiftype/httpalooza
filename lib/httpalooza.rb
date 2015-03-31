@@ -18,6 +18,7 @@ require 'httpalooza/players/http_client'
 require 'httpalooza/players/curl'
 require 'httpalooza/players/user_browser'
 require 'httpalooza/players/net_http'
+require 'httpalooza/players/rest_client'
 
 module HTTPalooza
   class Error < StandardError; end
