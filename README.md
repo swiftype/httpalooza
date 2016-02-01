@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ```ruby
 $ bundle exec bin/console
-irb(main):001:0> ap HTTPalooza.invite.patron_to_the_party.and_use_typhoeus_too.lets_also_use_http_client_and_plain_old_curl_to.rest_client_invited_itself.get("http://example.com")
+irb(main):001:0> ap HTTPalooza.invite.patron_to_the_party.and_use_typhoeus_too.lets_also_use_http_client_and_plain_old_curl_plus.rest_client_invited_itself_to.get("http://example.com")
 {
          :patron => <HTTPalooza::Response:70225910064600 code=200 body="<!doctype html>\n<html>\n<...,
        :typhoeus => <HTTPalooza::Response:70225915728560 code=200 body="<!doctype html>\n<html>\n<...,
