@@ -11,15 +11,9 @@ require 'httpalooza/request'
 require 'httpalooza/lineup'
 
 require 'httpalooza/players/base'
-require 'httpalooza/players/curb'
-require 'httpalooza/players/typhoeus'
-require 'httpalooza/players/patron'
-require 'httpalooza/players/http_client'
-require 'httpalooza/players/curl'
-require 'httpalooza/players/user_browser'
-require 'httpalooza/players/net_http'
-require 'httpalooza/players/rest_client'
-require 'httpalooza/players/em_http_request'
+Dir[File.join(File.dirname(__FILE__), 'httpalooza', 'players', '*.rb')].each do |player|
+  require player
+end
 
 module HTTPalooza
   class Error < StandardError; end
