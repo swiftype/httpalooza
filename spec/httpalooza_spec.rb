@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'set'
 
 describe HTTPalooza do
   it 'has a version number' do
@@ -16,11 +15,10 @@ describe HTTPalooza do
     unique_responses = {}
     non_awesome_players = {}
     responses.each do |player_name, response|
-      resp_key = response.as_key
-      if unique_responses.keys.include?(resp_key)
-        unique_responses[resp_key] << player_name
+      if unique_responses.keys.include?(response)
+        unique_responses[response] << player_name
       else
-        unique_responses[resp_key] = [ player_name ]
+        unique_responses[response] = [ player_name ]
       end
       non_awesome_players[player_name] = response unless response.awesome?
     end

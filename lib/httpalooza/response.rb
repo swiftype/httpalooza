@@ -21,8 +21,17 @@ module HTTPalooza
       "<HTTPalooza::Response:#{object_id} code=#{code} body=#{body.to_s.inspect.truncate(30)}"
     end
 
-    def as_key
-      "code=#{@code} body=#{@body}"
+    def ==(other)
+      self.eql?(other)
     end
+
+    def eql?(other)
+      code == other.code && body == other.body
+    end
+
+    def hash
+      body.hash ^ code.hash
+    end
+
   end
 end
