@@ -20,6 +20,7 @@ require 'httpalooza/players/user_browser'
 require 'httpalooza/players/net_http'
 require 'httpalooza/players/rest_client'
 require 'httpalooza/players/unirest'
+require 'httpalooza/players/em_http_request'
 
 module HTTPalooza
   class Error < StandardError; end
