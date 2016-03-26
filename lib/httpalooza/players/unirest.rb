@@ -1,8 +1,7 @@
-require 'unirest'
-
 module HTTPalooza
   module Players
     class UnirestPlayer < Base
+      require 'unirest'
       introducing! :unirest
 
       def response
