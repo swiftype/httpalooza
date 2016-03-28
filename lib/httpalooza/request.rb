@@ -1,5 +1,7 @@
 module HTTPalooza
   class Request
+    STANDARD_METHODS = [:get, :post, :put, :patch, :delete, :options, :head]
+
     attr_reader :url, :method, :params, :payload, :headers
 
     def initialize(url, method, options = {})
@@ -14,6 +16,12 @@ module HTTPalooza
 
     def ssl?
       !!(url.to_s =~ /^https/)
+    end
+
+    STANDARD_METHODS.each do |verb|
+      define_method(:"#{verb}?") do
+        method == verb
+      end
     end
 
     private
