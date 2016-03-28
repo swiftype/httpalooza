@@ -7,7 +7,7 @@ module HTTPalooza
         response = nil
         EM.synchrony do
           http_request = EventMachine::HttpRequest.new(request.url)
-          http_client = http_request.send(request.method, :query => request.params, :body => request.payload, :head => request.headers)
+          http_client = http_request.send(request.method, :body => request.payload, :head => request.headers)
           response = Response.new(http_client.response_header.status, http_client.response)
           EM.stop
         end
