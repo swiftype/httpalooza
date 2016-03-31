@@ -21,13 +21,11 @@ module HTTPalooza
       "<HTTPalooza::Response:#{object_id} code=#{code} body=#{body.to_s.inspect.truncate(30)}"
     end
 
-    def ==(other)
-      self.eql?(other)
+    def eql?(other)
+      self.class == other.class && code == other.code && body == other.body
     end
 
-    def eql?(other)
-      code == other.code && body == other.body
-    end
+    alias_method :==, :eql?
 
     def hash
       body.hash ^ code.hash
