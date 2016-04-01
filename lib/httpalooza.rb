@@ -19,6 +19,9 @@ module HTTPalooza
   class Error < StandardError; end
   class NotImplementedError < Error; end
 
+  # Starts an HTTPalooza session.
+  #
+  # @return [HTTPalooza::Lineup] the new Lineup
   def self.invite
     Lineup.new
   end

@@ -1,9 +1,28 @@
 module HTTPalooza
+  # Request presents a standard interface for describing an HTTP request that Players can translate into the underlying library's representation.
   class Request
     STANDARD_METHODS = [:get, :post, :put, :patch, :delete, :options, :head]
 
     attr_reader :url, :method, :params, :payload, :headers
+    # @!attribute [r] url
+    #    @return [String] the URL to request
+    # @!attribute [r] method
+    #   @return [Symbol] the HTTP method
+    # @!attribute [r] params
+    #   @return [Hash] the URL parameters
+    # @!attribute [r] payload
+    #   @return [String] the request body
+    # @!attribute [r] headers
+    #   @return [Hash] the request headers
 
+    # Instantiate a Request.
+    #
+    # @param [String] url the URL to request
+    # @param [Symbol] method the HTTP method
+    # @param [Hash] options additional options
+    # @option options [Hash] :params the URL parameters
+    # @option options [Hash] :headers the request headers
+    # @option options [String] :payload the request payload
     def initialize(url, method, options = {})
       @url = url
       @method = method
@@ -14,6 +33,7 @@ module HTTPalooza
       normalize_url!
     end
 
+    # @return [Boolean] whether or not the URL is SSL
     def ssl?
       !!(url.to_s =~ /^https/)
     end
