@@ -218,6 +218,13 @@ a {
     margin: 1rem 0;
     background-color: #eff0f1;
     border: 0; }
+  .main-content div.testimonial {
+    max-width: 30%;
+    float: left; }
+    .main-content div.testimonial img {
+        max-width: 200px;
+        max-height: 200px;
+      }
 
 .site-footer {
   padding-top: 2rem;
