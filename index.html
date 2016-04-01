@@ -22,7 +22,9 @@
 
 <p>Does your <code>Gemfile.lock</code> look like this?</p>
 
-<pre><code>    em-http-request (1.1.1)
+<pre><code>
+    curb (0.8.8)
+    em-http-request (1.1.1)
       addressable (&gt;= 2.3.4)
       cookiejar
       em-socksify (&gt;= 0.3)
@@ -34,6 +36,12 @@
       json (~&gt; 1.8)
       multi_xml (&gt;= 0.5.2)
     httpclient (2.4.0)
+    rest-client (1.8.0)
+      http-cookie (&gt;= 1.0.2, &lt; 2.0)
+      mime-types (&gt;= 1.16, &lt; 3.0)
+      netrc (~&gt; 0.7)
+    typhoeus (0.7.2)
+      ethon (&gt;= 0.7.4)
 </code></pre>
 
 <p>Time to make use of those HTTP clients. <strong>Enter httpalooza.</strong></p>
