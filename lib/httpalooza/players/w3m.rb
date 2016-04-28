@@ -24,7 +24,6 @@ module HTTPalooza
         if $? == 0
           code = 200 # probably, right?
 
-          # Lynx prints headers when you issue -head
           if request.head?
             output = ''
           end
