@@ -11,7 +11,7 @@ describe HTTPalooza do
   end
 
   it 'can make a request for everyone' do
-    responses = HTTPalooza.invite.everyone.except_user_browser_lawl_and_lynx_because_it_only_returns_text_and_according_to_luke_that_is_by_design_and_keep_selenium_out_too_he_is_too_real_for_this_spec.get("http://httpbin.org/")
+    responses = HTTPalooza.invite.everyone.except_user_browser_lawl_w3m_and_lynx_because_it_only_returns_text_and_according_to_luke_that_is_by_design_and_keep_selenium_out_too_he_is_too_real_for_this_spec.get("http://httpbin.org/")
     unique_responses = {}
     non_awesome_players = {}
     responses.each do |player_name, response|
