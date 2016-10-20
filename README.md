@@ -29,6 +29,16 @@ irb(main):001:0> ap HTTPalooza.invite.patron_to_the_party.and_use_typhoeus_too.l
 }
 ```
 
+## Postgres Client
+
+HTTPalooza uses Postgres's cutting edge technology, but needs your help to reach the clouds. Please install pgsql-http (https://github.com/pramsey/pgsql-http) along with Postgres (https://www.postgresql.org/) and create a database `httpalooza` with the `http` extension installed.
+
+```
+$ createdb httpalooza
+$ psql httpalooza
+httpalooza=# CREATE EXTENSION http;
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
