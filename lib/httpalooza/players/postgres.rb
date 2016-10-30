@@ -1,9 +1,7 @@
-require 'pg'
-
 module HTTPalooza
   module Players
     class PostgresPlayer < Base
-      introducing! :postgres, %w[ httpclient ]
+      introducing! :postgres, %w[pg]
 
       def response
         raise("I don't think Postgres supports request headers...") unless request.headers.empty?
@@ -14,33 +12,29 @@ module HTTPalooza
           unless request.payload.nil?
             endpoint += "?#{ payload_to_params }"
           end
-          conn.exec("SELECT status, content FROM http_get('#{ endpoint }')") do |result|
+          conn.exec_params('SELECT status, content FROM http_get($1)', Array(endpoint)) do |result|
             r = result.first
             return Response.new(r['status'], r['content'])
           end
 
         when :post
-          conn.exec(%{ SELECT status, content FROM
-                      http_post('#{ request.url }',
-                      '#{ payload_to_params }',
-                      'application/x-www-form-urlencoded') }
+          conn.exec('SELECT status, content FROM http_post($1, $2, $3)',
+            [request.url, payload_to_params, 'application/x-www-form-urlencoded']
           ) do |result|
             r = result.first
             return Response.new(r['status'], r['content'])
           end
 
         when :put
-          conn.exec(%{ SELECT status, content FROM
-                      http_put('#{ request.url }',
-                      '#{ payload_to_params }',
-                      'application/x-www-form-urlencoded') }
+          conn.exec_params('SELECT status, content FROM http_put($1, $2, $3)',
+            [request.url, payload_to_params, 'application/x-www-form-urlencoded']
           ) do |result|
             r = result.first
             return Response.new(r['status'], r['content'])
           end
 
         when :delete
-          conn.exec("SELECT status, content FROM http_delete('#{ endpoint }')") do |result|
+          conn.exec_params('SELECT status, content FROM http_delete($1)', Array(endpoint)) do |result|
             r = result.first
             return Response.new(r['status'], r['content'])
           end
@@ -59,7 +53,7 @@ module HTTPalooza
             request.payload
           end
         else
-          ""
+          ''
         end
       end
 
