@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "selenium-webdriver"
   spec.add_development_dependency "chromedriver-helper"
   spec.add_development_dependency "pg"
+  spec.add_development_dependency "ruby-oci8", "~> 2.2.2"
 
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler", "~> 1.8"
