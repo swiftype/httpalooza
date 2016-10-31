@@ -6,7 +6,7 @@ module HTTPalooza
       class << self
         attr_reader :name, :dependencies
 
-        # Create a new player and require any depenencies.
+        # Create a new player and require any dependencies.
         #
         # @example
         #   introducing! :selenium, %w[ selenium-webdriver ]
